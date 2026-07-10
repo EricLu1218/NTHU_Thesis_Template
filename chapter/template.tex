@@ -1,0 +1,210 @@
+\chapter{Template and Manual}
+
+\section{This is a section.}
+
+\subsection{This is a subsection.}
+
+\subsubsection{This is a subsubsection.}
+
+\section{Label}
+The \verb|\label{...}| in LaTeX is used to label the object. We can use \verb|\ref{...}| to cite the object. This is one way to categorize each label type.
+\begin{itemize}
+    \item \verb|\label{ch:...}|: for chapter.
+    \item \verb|\label{sec:...}|: for section, subsection or subsubsection.
+    \item \verb|\label{fig:...}|: for figure.
+    \item \verb|\label{tab:...}|: for table.
+    \item \verb|\label{eq:...}|: for equation.
+    \item \verb|\label{alg:...}|: for algorithm.
+\end{itemize}
+
+\section{Figure and Table}
+You can use \verb|\begin{figure}[...]| or \verb|\begin{table}[...]| to determine where to place your figure or table. The available options to fill in \verb|[...]| are listed as follows:
+\begin{itemize}
+    \item \texttt{h}: place here.
+    \item \texttt{t}: place on the top of a page.
+    \item \texttt{b}: place on the bottom of a page.
+    \item \texttt{p}: place on a new page.
+\end{itemize}
+
+\subsection{Figure}
+You can cite a figure like this: Figure~\ref{fig:figure}.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.3\linewidth]{figure/nthulogo.png}
+    \caption{Example of a single figure.}
+    \label{fig:figure}
+\end{figure}
+
+You can cite the whole figure using \verb|\ref{fig:...}| (Figure~\ref{fig:main-figure}) or cite the subfigure using \verb|\subref{fig:...}| (Figure~\ref{fig:main-figure}\subref{fig:subfigure1}).
+
+\begin{figure}[ht]
+    \centering
+    \begin{tabular}{cc}
+        \subfloat[Caption of subfigure 1.]{
+            \centering
+            \includegraphics[width=4cm]{figure/nthulogo.png}
+            \label{fig:subfigure1}
+        } &
+        \subfloat[Caption of subfigure 2.]{
+            \centering
+            \includegraphics[width=4cm]{figure/nthulogo.png}
+            \label{fig:subfigure2}
+        }
+    \end{tabular}
+    \caption{Example of two subfigures.}
+    \label{fig:main-figure}
+\end{figure}
+
+\newpage
+\subsection{Table}
+You can use the LaTeX table generator (https://www.tablesgenerator.com/) to generate a table and paste it here.
+
+Table~\ref{tab:traditional-style} is a table in traditional style.
+
+\begin{table}[ht]
+    \centering
+    \caption{Traditional Table Style}
+    \begin{tabular}{|c|cc|cc|}
+    \hline
+    \multirow{2}{*}{Benchmark} & \multicolumn{2}{c|}{Baseline}            & \multicolumn{2}{c|}{Ours}                \\ \cline{2-5} 
+                               & \multicolumn{1}{c|}{Score} & Runtime (s) & \multicolumn{1}{c|}{Score} & Runtime (s) \\ \hline
+    testcase1                  & \multicolumn{1}{c|}{12}    & 100         & \multicolumn{1}{c|}{11}    & 1           \\ \hline
+    testcase2                  & \multicolumn{1}{c|}{18}    & 150         & \multicolumn{1}{c|}{13}    & 1.5         \\ \hline
+    \end{tabular}
+    \label{tab:traditional-style}
+\end{table}
+
+Table~\ref{tab:booktabs-style} is a table in booktabs style.
+
+\begin{table}[ht]
+    \centering
+    \caption{Booktabs Table Style}
+    \begin{tabular}{@{}ccccc@{}}
+    \toprule
+    \multirow{2}{*}{Benchmark} & \multicolumn{2}{c}{Baseline} & \multicolumn{2}{c}{Ours} \\ \cmidrule(rl){2-3} \cmidrule(rl){4-5} 
+                               & Score      & Runtime (s)     & Score    & Runtime (s)   \\ \cmidrule(){1-5}
+    testcase1                  & 12         & 100             & 11       & 1             \\
+    testcase2                  & 18         & 150             & 13       & 1.5           \\ \bottomrule
+    \end{tabular}
+    \label{tab:booktabs-style}
+\end{table}
+
+You can use the resize box (\verb|\resizebox{0.9\textwidth}{!}{}|) to cover the whole \verb|\begin{tabular} ... \end{tabular}| to adjust the size of a table as Table~\ref{tab:resize}.
+
+\begin{table}[ht]
+    \centering
+    \caption{Table after Resizing}
+    \resizebox{0.9\textwidth}{!}{
+    \begin{tabular}{@{}ccccc@{}}
+    \toprule
+    \multirow{2}{*}{Benchmark} & \multicolumn{2}{c}{Baseline} & \multicolumn{2}{c}{Ours} \\ \cmidrule(rl){2-3} \cmidrule(rl){4-5} 
+                               & Score      & Runtime (s)     & Score    & Runtime (s)   \\ \cmidrule(){1-5}
+    testcase1                  & 12         & 100             & 11       & 1             \\
+    testcase2                  & 18         & 150             & 13       & 1.5           \\ \bottomrule
+    \end{tabular}
+    }
+    \label{tab:resize}
+\end{table}
+
+If your table is too wide to fit in a page width, you can use a sideways table Table~\ref{tab:sideways}.
+
+\begin{sidewaystable}[p]
+    \centering
+    \caption{Sideways Table}
+    \begin{tabular}{@{}ccccc@{}}
+    \toprule
+    \multirow{2}{*}{Benchmark} & \multicolumn{2}{c}{Baseline} & \multicolumn{2}{c}{Ours} \\ \cmidrule(rl){2-3} \cmidrule(rl){4-5} 
+                               & Score      & Runtime (s)     & Score    & Runtime (s)   \\ \cmidrule(){1-5}
+    testcase1                  & 12         & 100             & 11       & 1             \\
+    testcase2                  & 18         & 150             & 13       & 1.5           \\ \bottomrule
+    \end{tabular}
+    \label{tab:sideways}
+\end{sidewaystable}
+
+\newpage
+\section{Equation}
+Use \verb|$...$| to make a simple variable or mathematical function, such as $a$, $A$, $\mathcal{A}$, $\alpha$, $\sum_{i=0}^{n}x_i$, ... There are some ways to insert equations:
+\begin{itemize}
+    \item \verb|\begin{equation}|: insert a single equation.
+    \item \verb|\begin{gather}|: insert multiple equations. Use \verb|\\| to finish a line and start a new line.
+    \item \verb|\begin{align}|: insert multiple equations and align. Use \verb|\\| to finish a line and start a new line. Use \verb|&| as an anchor to align your equations.
+\end{itemize}
+Note that adding an asterisk (\verb|*|) to any of the environments above (e.g., \verb|align*|) will create an unnumbered version.
+
+The following equation is numbered. We can cite it using \verb|\eqref{eq:...}| as Equation~\eqref{eq:numbered}.
+\begin{equation}
+    Cost \gets Cost_{\mathrm{wirelength}} + Cost_{\mathrm{via}} \label{eq:numbered}
+\end{equation}
+These are a group of numbered equations:
+\begin{gather}
+    Cost_{\mathrm{wirelength}} \gets \text{get wirelength cost} \\
+    Cost_{\mathrm{via}} \gets \text{get via cost} \\
+    Cost \gets Cost_{\mathrm{wirelength}} + Cost_{\mathrm{via}}
+\end{gather}
+These are a group of unnumbered equations with alignment:
+\begin{align*}
+    Cost_{\mathrm{wirelength}} &\gets \text{get wirelength cost} \\
+    Cost_{\mathrm{via}} &\gets \text{get via cost} \\
+    Cost &\gets Cost_{\mathrm{wirelength}} + Cost_{\mathrm{via}}
+\end{align*}
+
+\section{Algorithm}
+Algorithm~\ref{alg:cal-wl} is an example of writing pseudo code in LaTeX.
+
+\begin{algorithm}
+    \caption{\texttt{CalWL}: Calculate the total wirelength}
+    \label{alg:cal-wl}
+    \SetAlgoLined
+    \SetNoFillComment
+
+    %% Define input and output
+    \KwIn{A group of nets $\mathcal{N}$ and a group of cells $\mathcal{C}$}
+    \KwOut{Wirelength $W$}
+
+    %% Define function name and format
+    \SetKwProg{Fn}{Function}{:}{end}
+    \SetKwFunction{GetBoundary}{GetBoundary}
+
+    $W \gets 0$\;
+    \tcc{Calculate the wirelength for each net}
+    \ForEach{$\mathrm{net}\ n \in \mathcal{N}$}{
+        ($x_1$, $y_1$, $x_2$, $y_2$) $\gets$ \GetBoundary{$n$}\;
+        
+        \BlankLine
+        \tcp{Wirelength is measured in Manhattan distance.}
+        $w \gets (x_2 - x_1) + (y_2 - y_1)$\;
+        $W \gets W + w$\;
+    }
+
+    \BlankLine
+    \tcc{Get the boundary of a net}
+    \Fn{\GetBoundary{$\mathrm{net}$ $n$}}{
+        $x_1 \gets \infty;\ y_1 \gets \infty;\ x_2 \gets 0;\ y_2 \gets 0$\;
+        \ForEach{$\mathrm{cell}$ $c \in \mathcal{C}(n)$}{
+            $x_1 \gets \min(x_1, x_c);\ y_1 \gets \min(y_1, y_c)$\;
+            $x_2 \gets \max(x_2, x_c);\ y_2 \gets \max(y_2, y_c)$\;
+        }
+        \KwRet{$\mathrm{(}$$x_1$, $y_1$, $x_2$, $y_2$$\mathrm{)}$}\;
+    }
+
+    \KwRet{$W$}\;
+\end{algorithm}
+
+\newpage
+\section{Itemize}
+Items with serial numbers:
+\begin{enumerate}
+    \item Item 1 ...
+    \item Item 2 ...
+    \item Item 3 ...
+\end{enumerate}
+Unnumbered items:
+\begin{itemize}
+    \item Item 1 ...
+    \item Item 2 ...
+    \item Item 3 ...
+\end{itemize}
+
+\section{Citation}
+Generate your references in BibTeX format and put them in ``reference.bib''. Then, you can use \verb|\cite{...}| to cite your reference, like Chang et al. \cite{chang2010nthu}. It is recommended to use Google Scholar (https://scholar.google.com.tw/) to get your references in BibTeX format.

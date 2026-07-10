@@ -1,0 +1,78 @@
+%% This template is modified by Chen-Han Lu for the new NTHU thesis format.
+%% Original authors' repos: 
+%% 1. Tz-Huan Huang (https://github.com/tzhuan/ntu-thesis)
+%% 2. Hao-Wei Lee (https://github.com/HW-Lee/nthu-thesis-template)
+%% 3. <signxer> (https://github.com/signxer/nthu-thesis-template-mod)
+
+
+%% Default Type: master's thesis (available options: phd, proposal)
+\documentclass[]{nthuthesis}
+
+%% Include the packages your thesis needs.
+\usepackage[ruled,vlined,linesnumbered]{algorithm2e}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{cite}
+\usepackage{color}
+\usepackage{emptypage}
+\usepackage{graphicx}
+\usepackage{hhline}
+\usepackage{makecell}
+\usepackage{mathrsfs}
+\usepackage{multirow}
+\usepackage{rotating}
+\usepackage{subfig}
+\usepackage{times}
+\usepackage{url}
+\usepackage{verbatim}
+\usepackage{wallpaper}
+
+%% English font
+% Note: please refer to 'fc-list :outline -f "%{family}\n"' for choosing a valid font name
+\usepackage{fontspec}
+\setmainfont{Times New Roman}
+\setmonofont{Courier New}
+
+%% Chinese font
+% Note: please refer to 'fc-list :outline -f "%{family}\n"' for choosing a valid font name
+\defaultCJKfontfeatures{AutoFakeBold=6,AutoFakeSlant=.4}
+\setCJKmainfont[AutoFakeBold=3,AutoFakeSlant=.4]{kaiu.ttf}
+\setCJKmonofont[AutoFakeBold=3,AutoFakeSlant=.4]{kaiu.ttf}
+
+%% Using the tex-text mapping for ligatures, etc.
+\defaultfontfeatures{Mapping=tex-text}
+
+\input{nthuvars}
+
+\begin{document}
+
+\frontmatter
+\makecover
+\input{content/abstract}
+\input{content/acknowledgements}
+{
+    \tableofcontents
+    \listoffigures
+    \listoftables
+}
+
+\mainmatter
+%% Your thesis goes here
+%% You can add or delete to reorganize your thesis.
+\input{chapter/introduction}
+\input{chapter/preliminaries}
+\input{chapter/methodology}
+\input{chapter/experimental-results}
+\input{chapter/conclusion}
+
+%% This file provides useful templates to help you finish your thesis.
+\input{chapter/template}  % Comment this after you finish your thesis.
+
+\backmatter
+\bibliographystyle{ieeetr}
+\bibliography{reference}
+
+\end{document}
