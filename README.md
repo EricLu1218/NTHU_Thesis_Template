@@ -1,4 +1,4 @@
-# National Tsing Hua University - Thesis Template
+# 國立清華大學 論文模板
 
 由於學校的論文格式在114學年度有更新，因此我修改了模板，並且將原本的模板做了整理，讓大家可以更方便使用。[預覽](Preview.pdf)
 
