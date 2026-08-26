@@ -23,6 +23,7 @@
 \usepackage{makecell}
 \usepackage{mathrsfs}
 \usepackage{multirow}
+\usepackage{pdfpages}
 \usepackage{rotating}
 \usepackage{subfig}
 \usepackage{times}
@@ -51,6 +52,18 @@
 
 \frontmatter
 \makecover
+\newpage
+\null
+\thispagestyle{empty}
+\newpage
+\makecover
+
+%% Replace the below documents with your own document.
+\includepdf[pages=-,pagecommand={\thispagestyle{empty}}]{content/authorized-agreement.pdf}
+\includepdf[pages=-,pagecommand={\thispagestyle{empty}}]{content/approval-form.pdf}
+\includepdf[pages=-,pagecommand={\thispagestyle{empty}}]{content/review-form.pdf}
+
+\setcounter{page}{1}
 \input{content/abstract}
 \input{content/acknowledgements}
 {

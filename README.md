@@ -17,9 +17,12 @@
 │   ├── experimental-results.tex
 │   ├── conclusion.tex
 │   └── template.tex               // LaTeX 範例與模板
-├── content                        // 摘要與誌謝
-│   ├── abstract.tex
-│   └── acknowledgements.tex
+├── content                        // 論文本體外的內容
+│   ├── abstract.tex               // 摘要
+│   ├── acknowledgements.tex       // 誌謝
+│   ├── approval-form.pdf          // 替換成你的推薦書
+│   ├── authorized-agreement.pdf   // 替換成你的授權書
+│   └── review-form.pdf            // 替換成你的審定書
 ├── figure                         // 圖片放這邊
 ├── table                          // 表格放這邊
 ├── kaiu.ttf                       // 標楷體字型檔
